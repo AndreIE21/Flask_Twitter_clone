@@ -1,0 +1,36 @@
+{% extends "base.html" %} {% block main %} {% if not session['username'] %}
+<div class="px-4 py-5 my-5 text-center">
+  <h1 class="display-5 fw-bold">Tweeter</h1>
+  <div class="col-lg-6 mx-auto">
+    <p class="lead mb-4">
+      You already have a functional tweeter clone, let's add a couple of
+      features to it:
+    </p>
+    <ol>
+      <li>Direct messages</li>
+      <li>Search tweets containing a word</li>
+    </ol>
+  </div>
+</div>
+{% else %}
+
+<form action="/tweet" method="POST">
+  <textarea name="tweet" id="tweet">Write something here!</textarea>
+  <button class="w-100 btn btn-lg btn-primary" type="submit">Tweet!</button>
+</form>
+
+<hr />
+
+<div id="tweets">
+  {% for tweet in tweets %}
+  <div class="tweet">
+    <img src="{{tweet[1]}}" alt="image for {{tweet[2]}}" class="profile" />
+    <span
+      ><a href="{{url_for('user_detail', user_id=tweet[0])}}">{{tweet[2]}}</a>:
+      {{tweet[3]}}</span
+    >
+  </div>
+  {% endfor %}
+</div>
+
+{% endif %} {% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% block main %}
+<div id="messages">
+  {% for message in messages %}
+  <div class="message">
+    <img src="{{message[2]}}" alt="image for {{message[1]}}" class="profile" />
+    <span
+      ><a href="{{url_for('user_detail', user_id=message[0])}}"
+        >{{message[1]}}</a
+      >: {{message[3]}}</span
+    >
+    {% endfor %}
+  </div>
+  <form action="/message" method="post">
+    <br />
+    <input
+      type="hidden"
+      name="receiver_id"
+      id="receiver_id"
+      value="{{user[0]}}"
+    />
+    <p>Respond to {{user[1]}}:</p>
+    <textarea name="message" id="message" cols="30" rows="5"></textarea>
+    <br />
+    <button class="btn btn-outline-primary btn-sm" type="submit">
+      Send message
+    </button>
+  </form>
+  {% endblock %}
+</div>

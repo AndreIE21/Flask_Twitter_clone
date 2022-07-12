@@ -1,0 +1,21 @@
+{% extends "base.html" %} {% block main %}
+<div id="messages">
+  <h1>Messages overview</h1>
+  <p>You have received the following messages.</p>
+  {% for message in messages%}
+  <div>
+    <h4>    
+      <img
+      src="{{message[2]}}"
+      alt="profile image for {{message[1]}}"
+      class="profile"
+    /> 
+    {{message[1]}}
+  </h4>
+    <p>
+      {{message[1]}}: {{message[3].split()[0]}} ... <a href="/messages/{{message[0]}}"><strong><em>Read more</em></strong></a>
+    </p>
+  </div>
+  {% endfor %} {% endblock %}
+</div>
+<span

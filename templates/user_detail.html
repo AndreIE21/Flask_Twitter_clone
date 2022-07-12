@@ -1,0 +1,19 @@
+{% extends "base.html" %} {% block main %}
+<div id="tweets">
+  {% for tweet in tweets %}
+  <div class="tweet">
+    <img src="{{user[2]}}" alt="image for {{user[1]}}" class="profile" />
+    <span
+      ><a href="{{url_for('user_detail', user_id=user[0])}}">{{user[1]}}</a>:
+      {{tweet[0]}}</span
+    >
+    {% endfor %}
+    <div class="message-redirect">
+      <button class="btn btn-outline-primary btn-sm" type="submit">
+        <a href="/messages/{{user[0]}}">Send message</a>
+      </button>
+    </div>
+  </div>
+
+  {% endblock %}
+</div>

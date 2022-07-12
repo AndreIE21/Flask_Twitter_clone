@@ -1,0 +1,13 @@
+click==8.0.4
+Flask==2.0.3
+Flask-CKEditor==0.4.6
+Flask-WTF==1.0.0
+greenlet==1.1.2
+itsdangerous==2.1.0
+Jinja2==3.0.3
+MarkupSafe==2.1.0
+platformdirs==2.5.1
+SQLAlchemy==1.4.31
+urllib3==1.26.8
+Werkzeug==2.0.3
+WTForms==3.0.1

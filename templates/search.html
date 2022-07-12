@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block main %} 
+<form method="POST">
+    <input type="text" autofocus = "autofocus" name= "search">
+    <input type ="submit" formaction="/search" values="Search">
+   </form>
+
+<br>
+   {% if tweets == [] %}
+<h4>Sorry bro your term: was not found...</h4>
+
+{% elif tweets|length > 0 %}
+<h4>{{ tweets|length }} results were found bro</h4>
+
+
+{% endif %}
+<br>
+<div id="tweets">
+  {% for tweet in tweets %} 
+  <div class="tweet">
+    <img src="{{tweet[1]}}" alt="image for {{tweet[2]}}" class="profile" />
+    <span
+      ><a href="{{url_for('user_detail', user_id=tweet[0])}}">{{tweet[2]}}</a>:
+      {{tweet[3]}}</span>
+
+      
+      {% endfor %}
+
+
+
+{% endblock %}
+</div>
